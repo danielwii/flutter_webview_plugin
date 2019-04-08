@@ -153,6 +153,8 @@ class WebviewManager {
                                 webView.goBack();
                             } else {
                                 FlutterWebviewPlugin.channel.invokeMethod("onBack", null);
+                                // close();
+                                // activity.moveTaskToBack(false);
                             }
                             return true;
                     }
@@ -417,7 +419,7 @@ class WebviewManager {
         }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            webView.getSettings().setMixedContentMode(WebSettings.MIXED_CONTENT_COMPATIBILITY_MODE);
+            webView.getSettings().setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
         }
 
         if (clearCache) {
